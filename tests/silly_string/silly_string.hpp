@@ -115,7 +115,7 @@ std::basic_ostream<CharType, Traits>& operator<<(std::basic_ostream<CharType, Tr
 namespace std {
 
 template<>
-struct less<silly_string> : public binary_function<silly_string, silly_string, bool>
+struct less<silly_string>
 {
   // functor for operator<
   bool operator()(const silly_string& lhs, const silly_string& rhs) const

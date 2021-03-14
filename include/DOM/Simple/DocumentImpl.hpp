@@ -25,7 +25,7 @@ namespace SimpleDOM
 {
 
 template<class stringT, class string_adaptorT>
-class valueIs : public std::unary_function<AttrImpl<stringT, string_adaptorT>*, bool>
+class valueIs
 {
   public:
     valueIs(const stringT& value) : value_(value) { }

@@ -426,6 +426,7 @@ public:
           save('-', h);
           save(' ', h);
           // fall through into A_MINUS
+          [[fallthrough]];
         case A_MINUS:
           save('-', h);
           save(ch, h);

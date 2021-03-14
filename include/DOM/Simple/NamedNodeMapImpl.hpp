@@ -13,7 +13,7 @@ namespace SimpleDOM
 {
 
 template<class stringT, class string_adaptorT>
-class nameIs : public std::unary_function<Arabica::SimpleDOM::NodeImpl<stringT, string_adaptorT>*, bool>
+class nameIs
 {
   public:
     nameIs(const stringT& name) : name_(name) { }
@@ -27,7 +27,7 @@ class nameIs : public std::unary_function<Arabica::SimpleDOM::NodeImpl<stringT, 
 }; // class nameIs
 
 template<class stringT, class string_adaptorT>
-class namespaceAndNameIs : public std::unary_function<NodeImpl<stringT, string_adaptorT>*, bool>
+class namespaceAndNameIs
 {
   public:
     namespaceAndNameIs(const stringT& namespaceURI, const stringT& localName) : 

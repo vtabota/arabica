@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\tests\Sax\filter_test_silly.cpp" />
+    <ClCompile Include="..\tests\silly_string\silly_string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\tests\Sax\test_WhitespaceStripper.hpp" />

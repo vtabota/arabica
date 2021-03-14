@@ -44,8 +44,9 @@ vs10/mangle.sln
 /vs2013+/Arabica.VC.VC.opendb
 /vc12
 /vc14
-/vs2013+/int/vc12
-/vs2013+/int/vc14
+/vc142
+/vs2013+/int/
+/vs2013+/.vs/
 *.vcxproj.filters
 *.vcxproj.user
 

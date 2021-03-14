@@ -36,6 +36,12 @@ class WhitespaceStripperTest : public TestCase
         );
     }
 
+	void setEmpty(std::basic_ostringstream<typename string_adaptor::value_type>& stream)
+    {
+        std::basic_ostringstream<typename string_adaptor::value_type> emptyStream;
+        std::swap(stream, emptyStream);
+    }
+
     void testNoStrip() 
     {
       std::basic_ostringstream<typename string_adaptor::value_type> o;
@@ -53,12 +59,12 @@ class WhitespaceStripperTest : public TestCase
       Arabica::SAX::PYXWriter<string_type, string_adaptor> writer(o, stripper);
       writer.parse(*source("<test><p>Woo</p></test>"));
       expect("(test\n(p\n-Woo\n)p\n)test\n", o);
-      
-      o.str(string_adaptor::empty_string());
+
+      setEmpty(o);
       writer.parse(*source("<test><p> Woo</p></test>"));
       expect("(test\n(p\n-Woo\n)p\n)test\n", o);
       
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>      Woo</p></test>"));
       expect("(test\n(p\n-Woo\n)p\n)test\n", o);
     } // testStripLeading
@@ -72,11 +78,11 @@ class WhitespaceStripperTest : public TestCase
       writer.parse(*source("<test><p>Woo</p></test>"));
       expect("(test\n(p\n-Woo\n)p\n)test\n", o);
       
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>Woo </p></test>"));
       expect("(test\n(p\n-Woo\n)p\n)test\n", o);
       
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>Woo     </p></test>"));
       expect("(test\n(p\n-Woo\n)p\n)test\n", o);
     } // testStripTrailing
@@ -90,11 +96,11 @@ class WhitespaceStripperTest : public TestCase
       writer.parse(*source("<test><p>Woo yea</p></test>"));
       expect("(test\n(p\n-Woo yea\n)p\n)test\n", o);
       
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>Woo  yea</p></test>"));
       expect("(test\n(p\n-Woo yea\n)p\n)test\n", o);
       
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>Woo     yea</p></test>"));
       expect("(test\n(p\n-Woo yea\n)p\n)test\n", o);
     } // testStripMid
@@ -108,15 +114,15 @@ class WhitespaceStripperTest : public TestCase
       writer.parse(*source("<test><p>Woo yea man</p></test>"));
       expect("(test\n(p\n-Woo yea man\n)p\n)test\n", o);
 
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>Woo yea  man</p></test>"));
       expect("(test\n(p\n-Woo yea man\n)p\n)test\n", o);
 
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>Woo     yea man</p></test>"));
       expect("(test\n(p\n-Woo yea man\n)p\n)test\n", o);
 
-      o.str(string_adaptor::empty_string());
+      setEmpty(o);
       writer.parse(*source("<test><p>Woo     yea    man</p></test>"));
       expect("(test\n(p\n-Woo yea man\n)p\n)test\n", o);
     } // testStripMid2

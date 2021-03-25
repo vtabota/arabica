@@ -203,8 +203,6 @@ set(PUBLIC_HEADER_FILES
   include/SAX/wrappers/saxlibxml2.hpp
   include/SAX/wrappers/saxmsxml2.hpp
   include/SAX/wrappers/saxxerces.hpp
-  include/SAX/wrappers/XercesFeatureNames.hpp
-  include/SAX/wrappers/XercesPropertyNames.hpp
   include/DOM/Attr.hpp
   include/DOM/CDATASection.hpp
   include/DOM/CharacterData.hpp

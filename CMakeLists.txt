@@ -7,8 +7,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project(arabica)
 
-# Enable C++14 support
-set(CMAKE_CXX_STANDARD 14)
+# Enable C++17 support
+set(CMAKE_CXX_STANDARD 17)
 
 set(LIB_NAME arabica)
 
